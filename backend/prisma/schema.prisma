@@ -1,0 +1,200 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String        @id @default(uuid()) @db.Uuid
+  clerkId      String        @unique @map("clerk_id") @db.VarChar(255)
+  email        String        @unique @db.VarChar(255)
+  name         String        @db.VarChar(255)
+  avatarUrl    String?       @map("avatar_url") @db.Text
+  plan         String        @default("free") @db.VarChar(50)
+  isAdmin      Boolean       @default(false) @map("is_admin")
+  workspaceId  String?       @map("workspace_id") @db.Uuid
+  createdAt    DateTime      @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime      @default(now()) @map("updated_at") @db.Timestamptz
+
+  conversations Conversation[]
+  apiKeys       ApiKey[]
+  usageLogs     UsageLog[]
+  subscription  Subscription?
+  workspace     Workspace?     @relation("ActiveWorkspace", fields: [workspaceId], references: [id], onDelete: SetNull)
+  ownedWorkspaces Workspace[]   @relation("OwnedWorkspaces")
+  teamMemberships TeamMember[]
+  billingLogs     BillingLog[]
+  agents          Agent[]
+
+  @@map("users")
+}
+
+model Workspace {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String   @db.VarChar(255)
+  slug        String   @unique @db.VarChar(255)
+  ownerId     String   @map("owner_id") @db.Uuid
+  plan        String   @default("free") @db.VarChar(50)
+  maxMembers  Int      @default(1) @map("max_members")
+  settings    Json?    @db.JsonB
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime @default(now()) @map("updated_at") @db.Timestamptz
+
+  owner       User     @relation("OwnedWorkspaces", fields: [ownerId], references: [id], onDelete: Cascade)
+  members     TeamMember[]
+  activeUsers User[]   @relation("ActiveWorkspace")
+
+  @@map("workspaces")
+}
+
+model TeamMember {
+  id          String    @id @default(uuid()) @db.Uuid
+  workspaceId String    @map("workspace_id") @db.Uuid
+  userId      String    @map("user_id") @db.Uuid
+  role        String    @default("member") @db.VarChar(50)
+  invitedBy   String?   @map("invited_by") @db.Uuid
+  joinedAt    DateTime? @map("joined_at") @db.Timestamptz
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("team_members")
+}
+
+model Subscription {
+  id                  String    @id @default(uuid()) @db.Uuid
+  userId              String    @unique @map("user_id") @db.Uuid
+  stripeCustomerId    String    @map("stripe_customer_id") @db.VarChar(255)
+  stripeSubscriptionId String?   @map("stripe_subscription_id") @db.VarChar(255)
+  plan                String    @default("free") @db.VarChar(50)
+  status              String    @default("active") @db.VarChar(50)
+  selectedModels      Json?     @map("selected_models") @db.JsonB
+  tokenQuotaMonthly   Int       @default(100000) @map("token_quota_monthly")
+  tokenUsedThisMonth  Int       @default(0) @map("token_used_this_month")
+  billingPeriodStart  DateTime? @map("billing_period_start") @db.Timestamptz
+  billingPeriodEnd    DateTime? @map("billing_period_end") @db.Timestamptz
+  createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt           DateTime  @default(now()) @map("updated_at") @db.Timestamptz
+
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("subscriptions")
+}
+
+model Conversation {
+  id           String    @id @default(uuid()) @db.Uuid
+  userId       String    @map("user_id") @db.Uuid
+  workspaceId  String?   @map("workspace_id") @db.Uuid
+  title        String    @default("New Conversation") @db.VarChar(500)
+  modelId      String    @map("model_id") @db.VarChar(255)
+  provider     String    @db.VarChar(100)
+  systemPrompt String?   @map("system_prompt") @db.Text
+  isArchived   Boolean   @default(false) @map("is_archived")
+  totalTokens  Int       @default(0) @map("total_tokens")
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime  @default(now()) @map("updated_at") @db.Timestamptz
+
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages     Message[]
+
+  @@map("conversations")
+}
+
+model Message {
+  id             String    @id @default(uuid()) @db.Uuid
+  conversationId String    @map("conversation_id") @db.Uuid
+  role           String    @db.VarChar(50)
+  content        String    @db.Text
+  modelId        String?   @map("model_id") @db.VarChar(255)
+  promptTokens   Int       @default(0) @map("prompt_tokens")
+  completionTokens Int     @default(0) @map("completion_tokens")
+  totalTokens    Int       @default(0) @map("total_tokens")
+  costUsd        Float     @default(0.0) @map("cost_usd")
+  durationMs     Int?      @map("duration_ms")
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
+
+model UsageLog {
+  id             String    @id @default(uuid()) @db.Uuid
+  userId         String    @map("user_id") @db.Uuid
+  workspaceId    String?   @map("workspace_id") @db.Uuid
+  conversationId String?   @map("conversation_id") @db.Uuid
+  messageId      String?   @map("message_id") @db.Uuid
+  provider       String    @db.VarChar(100)
+  modelId        String    @map("model_id") @db.VarChar(255)
+  promptTokens   Int       @default(0) @map("prompt_tokens")
+  completionTokens Int     @default(0) @map("completion_tokens")
+  totalTokens    Int       @default(0) @map("total_tokens")
+  costUsd        Float     @default(0.0) @map("cost_usd")
+  latencyMs      Int       @default(0) @map("latency_ms")
+  status         String    @default("success") @db.VarChar(50)
+  errorMessage   String?   @map("error_message") @db.Text
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("usage_logs")
+}
+
+model ApiKey {
+  id          String    @id @default(uuid()) @db.Uuid
+  userId      String    @map("user_id") @db.Uuid
+  workspaceId String?   @map("workspace_id") @db.Uuid
+  name        String    @db.VarChar(255)
+  provider    String    @db.VarChar(100)
+  encryptedKey String   @map("encrypted_key") @db.VarChar(1024)
+  keyPreview  String    @map("key_preview") @db.VarChar(20)
+  isActive    Boolean   @default(true) @map("is_active")
+  lastUsedAt  DateTime? @map("last_used_at") @db.Timestamptz
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("api_keys")
+}
+
+model BillingLog {
+  id            String   @id @default(uuid()) @db.Uuid
+  userId        String   @map("user_id") @db.Uuid
+  stripeEventId String   @unique @map("stripe_event_id") @db.VarChar(255)
+  eventType     String   @map("event_type") @db.VarChar(255)
+  amountCents   Int      @default(0) @map("amount_cents")
+  currency      String   @default("usd") @db.VarChar(10)
+  status        String   @db.VarChar(50)
+  metadata      Json?    @db.JsonB
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("billing_logs")
+}
+
+model Agent {
+  id           String   @id @default(uuid()) @db.Uuid
+  name         String   @db.VarChar(255)
+  description  String   @db.Text
+  authorId     String   @map("author_id") @db.Uuid
+  modelId      String   @map("model_id") @db.VarChar(255)
+  systemPrompt String   @map("system_prompt") @db.Text
+  category     String   @default("general") @db.VarChar(100)
+  isPublic     Boolean  @default(false) @map("is_public")
+  isFeatured   Boolean  @default(false) @map("is_featured")
+  usageCount   Int      @default(0) @map("usage_count")
+  rating       Float    @default(0.0)
+  priceCredits Int      @default(0) @map("price_credits")
+  iconUrl      String?  @map("icon_url") @db.Text
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz
+
+  author       User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("agents")
+}
