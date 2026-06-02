@@ -138,7 +138,7 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 
 // ── Server Boot ──────────────────────────────────────────────────────────────
 const PORT = config.PORT;
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.info(`[Node] AI Workspace API running on http://localhost:${PORT}`);
   
   // Start active provider health checks background loop
