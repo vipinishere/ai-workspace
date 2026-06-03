@@ -64,21 +64,25 @@ server.on("upgrade", async (request, socket, head) => {
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || config.ALLOWED_ORIGINS.includes(origin) || origin.startsWith("http://localhost:")) {
+      if (
+        !origin ||
+        config.ALLOWED_ORIGINS.includes(origin) ||
+        origin.startsWith("http://localhost:")
+      ) {
         callback(null, true);
       } else {
         callback(new Error(`Origin ${origin} not allowed by CORS`));
       }
     },
     credentials: true,
-  })
+  }),
 );
 
 // Raw parser specifically for Stripe webhook signature verification
 app.post(
   "/api/v1/billing/webhook",
   express.raw({ type: "application/json" }),
-  billingRouter
+  billingRouter,
 );
 
 // Standard JSON body parser for all other routes
@@ -131,23 +135,36 @@ app.get("/", (req, res) => {
 });
 
 // Global error handler
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error("Global express error handler:", err.message);
-  return res.status(500).json({ detail: err.message || "Internal Server Error" });
-});
+app.use(
+  (
+    err: any,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction,
+  ) => {
+    console.error("Global express error handler:", err.message);
+    return res
+      .status(500)
+      .json({ detail: err.message || "Internal Server Error" });
+  },
+);
 
 // ── Server Boot ──────────────────────────────────────────────────────────────
 const PORT = config.PORT;
 server.listen(PORT, "0.0.0.0", () => {
-  console.info(`[Node] AI Workspace API running on http://localhost:${PORT}`);
-  
+  console.info(
+    `[Node] AI Workspace API running on ${process.env.BACKEND_URL ?? `http://localhost:${PORT}`}`,
+  );
+
   // Start active provider health checks background loop
   startHealthMonitor(60);
 });
 
 // Handle graceful server shutdown
 process.on("SIGTERM", () => {
-  console.info("[Node] SIGTERM received. Shutting down health pings and HTTP server...");
+  console.info(
+    "[Node] SIGTERM received. Shutting down health pings and HTTP server...",
+  );
   stopHealthMonitor();
   server.close(() => {
     process.exit(0);

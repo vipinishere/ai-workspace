@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import type { Metadata } from 'next'
+import Link from "next/link";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'AI Workspace — The Unified AI Platform',
-}
+  title: "AI Workspace — The Unified AI Platform",
+};
 
 export default function LandingPage() {
   return (
@@ -760,110 +760,130 @@ export default function LandingPage() {
         }
       `}</style>
 
-      <div className="landing-page">
+      <div className='landing-page'>
         {/* ===== NAVIGATION ===== */}
-        <nav className="nav">
-          <a href="/" className="nav-logo">
-            <div className="nav-logo-icon">✦</div>
-            <span className="nav-logo-text">AI<span>Workspace</span></span>
+        <nav className='nav'>
+          <a href='/' className='nav-logo'>
+            <div className='nav-logo-icon'>✦</div>
+            <span className='nav-logo-text'>
+              AI<span>Workspace</span>
+            </span>
           </a>
-          <ul className="nav-links">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#docs">Docs</a></li>
-            <li><a href="#changelog">Changelog</a></li>
+          <ul className='nav-links'>
+            <li>
+              <a href='#features'>Features</a>
+            </li>
+            <li>
+              <a href='#pricing'>Pricing</a>
+            </li>
+            <li>
+              <a href='#docs'>Docs</a>
+            </li>
+            <li>
+              <a href='#changelog'>Changelog</a>
+            </li>
           </ul>
-          <div className="nav-actions">
-            <Link href="/sign-in" className="btn-ghost-nav">Sign In</Link>
-            <Link href="/sign-up" className="btn-nav-primary">Get Started Free</Link>
+          <div className='nav-actions'>
+            <Link href='/sign-in' className='btn-ghost-nav'>
+              Sign In
+            </Link>
+            <Link href='/sign-up' className='btn-nav-primary'>
+              Get Started Free
+            </Link>
           </div>
         </nav>
 
         {/* ===== HERO ===== */}
-        <section className="hero">
-          <div className="hero-blob-1" />
-          <div className="hero-blob-2" />
-          <div className="hero-blob-3" />
+        <section className='hero'>
+          <div className='hero-blob-1' />
+          <div className='hero-blob-2' />
+          <div className='hero-blob-3' />
 
           {/* Floating cards */}
-          <div className="hero-floating-cards">
-            <div className="float-card float-card-1">
-              <div className="float-card-title">💰 Cost This Month</div>
-              <div className="float-card-value">$12.47</div>
+          <div className='hero-floating-cards'>
+            <div className='float-card float-card-1'>
+              <div className='float-card-title'>💰 Cost This Month</div>
+              <div className='float-card-value'>$12.47</div>
             </div>
-            <div className="float-card float-card-2">
-              <div className="float-card-title">⚡ Tokens Today</div>
-              <div className="float-card-value">1.2M</div>
+            <div className='float-card float-card-2'>
+              <div className='float-card-title'>⚡ Tokens Today</div>
+              <div className='float-card-value'>1.2M</div>
             </div>
-            <div className="float-card float-card-3">
-              <div className="float-card-title">🤖 Active Models</div>
-              <div className="float-card-value">GPT-4o · Claude 3.5</div>
+            <div className='float-card float-card-3'>
+              <div className='float-card-title'>🤖 Active Models</div>
+              <div className='float-card-value'>GPT-4o · Claude 3.5</div>
             </div>
-            <div className="float-card float-card-4">
-              <div className="float-card-title">✅ Provider Status</div>
-              <div className="float-card-value" style={{ color: '#10b981' }}>All Systems Normal</div>
+            <div className='float-card float-card-4'>
+              <div className='float-card-title'>✅ Provider Status</div>
+              <div className='float-card-value' style={{ color: "#10b981" }}>
+                All Systems Normal
+              </div>
             </div>
           </div>
 
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <div className="hero-badge">
-              <div className="hero-badge-dot" />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <div className='hero-badge'>
+              <div className='hero-badge-dot' />
               Now supporting GPT-4o, Claude 3.5, Gemini 1.5 Pro & more
             </div>
-            <h1 className="hero-headline">
-              One workspace for<br />
-              <span className="gradient-word">all your AI models</span>
+            <h1 className='hero-headline'>
+              One workspace for
+              <br />
+              <span className='gradient-word'>all your AI models</span>
             </h1>
-            <p className="hero-subtitle">
-              Stop juggling multiple AI subscriptions. AI Workspace gives you instant access to 50+ models,
-              BYOK support, real-time token tracking, and team collaboration — all in one beautiful platform.
+            <p className='hero-subtitle'>
+              Stop juggling multiple AI subscriptions. AI Workspace gives you
+              instant access to 50+ models, BYOK support, real-time token
+              tracking, and team collaboration — all in one beautiful platform.
             </p>
-            <div className="hero-cta">
-              <Link href="/sign-up" className="btn-hero-primary">
+            <div className='hero-cta'>
+              <Link href='/sign-up' className='btn-hero-primary'>
                 Start for Free →
               </Link>
-              <Link href="/dashboard" className="btn-hero-secondary">
+              <Link href='/dashboard' className='btn-hero-secondary'>
                 View Demo
               </Link>
             </div>
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <div className="hero-stat-number">50+</div>
-                <div className="hero-stat-label">AI Models</div>
+            <div className='hero-stats'>
+              <div className='hero-stat'>
+                <div className='hero-stat-number'>50+</div>
+                <div className='hero-stat-label'>AI Models</div>
               </div>
-              <div className="hero-divider" />
-              <div className="hero-stat">
-                <div className="hero-stat-number">10K+</div>
-                <div className="hero-stat-label">Teams using it</div>
+              <div className='hero-divider' />
+              <div className='hero-stat'>
+                <div className='hero-stat-number'>10K+</div>
+                <div className='hero-stat-label'>Teams using it</div>
               </div>
-              <div className="hero-divider" />
-              <div className="hero-stat">
-                <div className="hero-stat-number">2B+</div>
-                <div className="hero-stat-label">Tokens processed</div>
+              <div className='hero-divider' />
+              <div className='hero-stat'>
+                <div className='hero-stat-number'>2B+</div>
+                <div className='hero-stat-label'>Tokens processed</div>
               </div>
-              <div className="hero-divider" />
-              <div className="hero-stat">
-                <div className="hero-stat-number">99.9%</div>
-                <div className="hero-stat-label">Uptime SLA</div>
+              <div className='hero-divider' />
+              <div className='hero-stat'>
+                <div className='hero-stat-number'>99.9%</div>
+                <div className='hero-stat-label'>Uptime SLA</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ===== PROVIDER STRIP ===== */}
-        <div className="providers-strip">
-          <div className="providers-label">Works with the world's leading AI providers</div>
-          <div className="providers-logos">
+        <div className='providers-strip'>
+          <div className='providers-label'>
+            Works with the world's leading AI providers
+          </div>
+          <div className='providers-logos'>
             {[
-              { name: 'OpenAI', color: '#10a37f' },
-              { name: 'Anthropic', color: '#d4a959' },
-              { name: 'Google DeepMind', color: '#4285f4' },
-              { name: 'Mistral AI', color: '#ff7c00' },
-              { name: 'Cohere', color: '#39c5bb' },
-              { name: 'OpenRouter', color: '#7c3aed' },
-            ].map(p => (
-              <div key={p.name} className="provider-pill">
-                <div className="provider-dot" style={{ background: p.color }} />
+              { name: "OpenAI", color: "#10a37f" },
+              { name: "Anthropic", color: "#d4a959" },
+              { name: "Google DeepMind", color: "#4285f4" },
+              { name: "Mistral AI", color: "#ff7c00" },
+              { name: "Cohere", color: "#39c5bb" },
+              { name: "OpenRouter", color: "#7c3aed" },
+            ].map((p) => (
+              <div key={p.name} className='provider-pill'>
+                <div className='provider-dot' style={{ background: p.color }} />
                 {p.name}
               </div>
             ))}
@@ -871,65 +891,94 @@ export default function LandingPage() {
         </div>
 
         {/* ===== FEATURES ===== */}
-        <section id="features" className="features">
-          <div className="section-header">
-            <div className="section-eyebrow">Features</div>
-            <h2 className="section-title">Everything you need to ship with AI</h2>
-            <p className="section-subtitle">
-              From individual developers to enterprise teams, AI Workspace scales with your needs.
+        <section id='features' className='features'>
+          <div className='section-header'>
+            <div className='section-eyebrow'>Features</div>
+            <h2 className='section-title'>
+              Everything you need to ship with AI
+            </h2>
+            <p className='section-subtitle'>
+              From individual developers to enterprise teams, AI Workspace
+              scales with your needs.
             </p>
           </div>
-          <div className="features-grid">
+          <div className='features-grid'>
             {[
               {
-                icon: '🤖',
-                bg: 'rgba(124,58,237,0.12)',
-                title: '50+ AI Models in One Place',
-                desc: 'Instantly switch between GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, and more. No more juggling separate subscriptions and interfaces.',
-                tag: { label: 'Multi-model', color: '#7c3aed', bg: 'rgba(124,58,237,0.1)' },
+                icon: "🤖",
+                bg: "rgba(124,58,237,0.12)",
+                title: "50+ AI Models in One Place",
+                desc: "Instantly switch between GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, and more. No more juggling separate subscriptions and interfaces.",
+                tag: {
+                  label: "Multi-model",
+                  color: "#7c3aed",
+                  bg: "rgba(124,58,237,0.1)",
+                },
               },
               {
-                icon: '🔑',
-                bg: 'rgba(245,158,11,0.12)',
-                title: 'Bring Your Own API Keys (BYOK)',
-                desc: 'Connect your own OpenAI, Anthropic, and Google API keys. Full data privacy and cost transparency — we never markup your API costs.',
-                tag: { label: 'Data Privacy', color: '#f59e0b', bg: 'rgba(245,158,11,0.1)' },
+                icon: "🔑",
+                bg: "rgba(245,158,11,0.12)",
+                title: "Bring Your Own API Keys (BYOK)",
+                desc: "Connect your own OpenAI, Anthropic, and Google API keys. Full data privacy and cost transparency — we never markup your API costs.",
+                tag: {
+                  label: "Data Privacy",
+                  color: "#f59e0b",
+                  bg: "rgba(245,158,11,0.1)",
+                },
               },
               {
-                icon: '📊',
-                bg: 'rgba(59,130,246,0.12)',
-                title: 'Real-time Token Analytics',
-                desc: 'Track every token spent, cost per model, daily trends, and team usage. Export detailed reports and set budget alerts.',
-                tag: { label: 'Analytics', color: '#3b82f6', bg: 'rgba(59,130,246,0.1)' },
+                icon: "📊",
+                bg: "rgba(59,130,246,0.12)",
+                title: "Real-time Token Analytics",
+                desc: "Track every token spent, cost per model, daily trends, and team usage. Export detailed reports and set budget alerts.",
+                tag: {
+                  label: "Analytics",
+                  color: "#3b82f6",
+                  bg: "rgba(59,130,246,0.1)",
+                },
               },
               {
-                icon: '⚡',
-                bg: 'rgba(6,182,212,0.12)',
-                title: 'Server-Sent Event Streaming',
-                desc: 'Real-time response streaming with character-by-character output. Works across all supported models, with latency monitoring.',
-                tag: { label: 'SSE Streaming', color: '#06b6d4', bg: 'rgba(6,182,212,0.1)' },
+                icon: "⚡",
+                bg: "rgba(6,182,212,0.12)",
+                title: "Server-Sent Event Streaming",
+                desc: "Real-time response streaming with character-by-character output. Works across all supported models, with latency monitoring.",
+                tag: {
+                  label: "SSE Streaming",
+                  color: "#06b6d4",
+                  bg: "rgba(6,182,212,0.1)",
+                },
               },
               {
-                icon: '👥',
-                bg: 'rgba(16,185,129,0.12)',
-                title: 'Team Workspace & Collaboration',
-                desc: 'Invite your team, assign roles, share conversations and AI agents. All team usage consolidated in one billing account.',
-                tag: { label: 'Team Plans', color: '#10b981', bg: 'rgba(16,185,129,0.1)' },
+                icon: "👥",
+                bg: "rgba(16,185,129,0.12)",
+                title: "Team Workspace & Collaboration",
+                desc: "Invite your team, assign roles, share conversations and AI agents. All team usage consolidated in one billing account.",
+                tag: {
+                  label: "Team Plans",
+                  color: "#10b981",
+                  bg: "rgba(16,185,129,0.1)",
+                },
               },
               {
-                icon: '🛒',
-                bg: 'rgba(239,68,68,0.12)',
-                title: 'AI Agent Marketplace',
-                desc: 'Discover and deploy pre-built AI agents for coding, writing, research, and analysis. Create your own and share with the community.',
-                tag: { label: 'Marketplace', color: '#ef4444', bg: 'rgba(239,68,68,0.1)' },
+                icon: "🛒",
+                bg: "rgba(239,68,68,0.12)",
+                title: "AI Agent Marketplace",
+                desc: "Discover and deploy pre-built AI agents for coding, writing, research, and analysis. Create your own and share with the community.",
+                tag: {
+                  label: "Marketplace",
+                  color: "#ef4444",
+                  bg: "rgba(239,68,68,0.1)",
+                },
               },
             ].map((f) => (
-              <div key={f.title} className="feature-card">
-                <div className="feature-icon" style={{ background: f.bg }}>{f.icon}</div>
-                <div className="feature-title">{f.title}</div>
-                <div className="feature-desc">{f.desc}</div>
+              <div key={f.title} className='feature-card'>
+                <div className='feature-icon' style={{ background: f.bg }}>
+                  {f.icon}
+                </div>
+                <div className='feature-title'>{f.title}</div>
+                <div className='feature-desc'>{f.desc}</div>
                 <div
-                  className="feature-tag"
+                  className='feature-tag'
                   style={{ background: f.tag.bg, color: f.tag.color }}
                 >
                   {f.tag.label}
@@ -940,158 +989,213 @@ export default function LandingPage() {
         </section>
 
         {/* ===== PRICING ===== */}
-        <section id="pricing" className="pricing">
-          <div className="pricing-inner">
-            <div className="section-header">
-              <div className="section-eyebrow">Pricing</div>
-              <h2 className="section-title">Simple, transparent pricing</h2>
-              <p className="section-subtitle">
+        <section id='pricing' className='pricing'>
+          <div className='pricing-inner'>
+            <div className='section-header'>
+              <div className='section-eyebrow'>Pricing</div>
+              <h2 className='section-title'>Simple, transparent pricing</h2>
+              <p className='section-subtitle'>
                 Pay only for what you use. No surprise bills. Cancel any time.
               </p>
             </div>
-            <div className="pricing-grid">
+            <div className='pricing-grid'>
               {/* Free */}
-              <div className="pricing-card">
-                <div className="pricing-plan">Free</div>
-                <div className="pricing-price">
-                  <span className="pricing-currency">$</span>
-                  <span className="pricing-amount">0</span>
-                  <span className="pricing-period">/month</span>
+              <div className='pricing-card'>
+                <div className='pricing-plan'>Free</div>
+                <div className='pricing-price'>
+                  <span className='pricing-currency'>$</span>
+                  <span className='pricing-amount'>0</span>
+                  <span className='pricing-period'>/month</span>
                 </div>
-                <div className="pricing-desc">Perfect for trying out AI Workspace.</div>
-                <div className="pricing-divider" />
-                <ul className="pricing-features">
+                <div className='pricing-desc'>
+                  Perfect for trying out AI Workspace.
+                </div>
+                <div className='pricing-divider' />
+                <ul className='pricing-features'>
                   {[
-                    [true, '500K tokens / month'],
-                    [true, '2 AI models (GPT-4o Mini, Gemini Flash)'],
-                    [true, '50 conversations / month'],
-                    [true, 'Basic analytics'],
-                    [false, 'BYOK support'],
-                    [false, 'Team workspace'],
-                    [false, 'Priority support'],
+                    [true, "500K tokens / month"],
+                    [true, "2 AI models (GPT-4o Mini, Gemini Flash)"],
+                    [true, "50 conversations / month"],
+                    [true, "Basic analytics"],
+                    [false, "BYOK support"],
+                    [false, "Team workspace"],
+                    [false, "Priority support"],
                   ].map(([included, label], i) => (
-                    <li key={i} className={`pricing-feature ${included ? 'included' : ''}`}>
-                      <span className={included ? 'pricing-feature-check' : 'pricing-feature-x'}>
-                        {included ? '✓' : '×'}
+                    <li
+                      key={i}
+                      className={`pricing-feature ${included ? "included" : ""}`}
+                    >
+                      <span
+                        className={
+                          included
+                            ? "pricing-feature-check"
+                            : "pricing-feature-x"
+                        }
+                      >
+                        {included ? "✓" : "×"}
                       </span>
                       {label as string}
                     </li>
                   ))}
                 </ul>
-                <Link href="/sign-up" className="btn-pricing-secondary">Get Started Free</Link>
+                <Link href='/sign-up' className='btn-pricing-secondary'>
+                  Get Started Free
+                </Link>
               </div>
 
               {/* Pro */}
-              <div className="pricing-card popular">
-                <div className="pricing-popular-badge">Most Popular</div>
-                <div className="pricing-plan" style={{ color: '#a78bfa' }}>Pro</div>
-                <div className="pricing-price">
-                  <span className="pricing-currency">$</span>
-                  <span className="pricing-amount" style={{ background: 'linear-gradient(135deg, #7c3aed, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>29</span>
-                  <span className="pricing-period">/month</span>
+              <div className='pricing-card popular'>
+                <div className='pricing-popular-badge'>Most Popular</div>
+                <div className='pricing-plan' style={{ color: "#a78bfa" }}>
+                  Pro
                 </div>
-                <div className="pricing-desc">For power users and individual developers.</div>
-                <div className="pricing-divider" style={{ background: 'rgba(124,58,237,0.2)' }} />
-                <ul className="pricing-features">
+                <div className='pricing-price'>
+                  <span className='pricing-currency'>$</span>
+                  <span
+                    className='pricing-amount'
+                    style={{
+                      background: "linear-gradient(135deg, #7c3aed, #3b82f6)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    29
+                  </span>
+                  <span className='pricing-period'>/month</span>
+                </div>
+                <div className='pricing-desc'>
+                  For power users and individual developers.
+                </div>
+                <div
+                  className='pricing-divider'
+                  style={{ background: "rgba(124,58,237,0.2)" }}
+                />
+                <ul className='pricing-features'>
                   {[
-                    [true, '10M tokens / month'],
-                    [true, 'All 50+ AI models'],
-                    [true, 'Unlimited conversations'],
-                    [true, 'Advanced analytics & exports'],
-                    [true, 'BYOK support (unlimited keys)'],
-                    [true, 'API access'],
-                    [false, 'Team workspace'],
+                    [true, "10M tokens / month"],
+                    [true, "All 50+ AI models"],
+                    [true, "Unlimited conversations"],
+                    [true, "Advanced analytics & exports"],
+                    [true, "BYOK support (unlimited keys)"],
+                    [true, "API access"],
+                    [false, "Team workspace"],
                   ].map(([included, label], i) => (
-                    <li key={i} className={`pricing-feature ${included ? 'included' : ''}`}>
-                      <span className={included ? 'pricing-feature-check' : 'pricing-feature-x'}>
-                        {included ? '✓' : '×'}
+                    <li
+                      key={i}
+                      className={`pricing-feature ${included ? "included" : ""}`}
+                    >
+                      <span
+                        className={
+                          included
+                            ? "pricing-feature-check"
+                            : "pricing-feature-x"
+                        }
+                      >
+                        {included ? "✓" : "×"}
                       </span>
                       {label as string}
                     </li>
                   ))}
                 </ul>
-                <Link href="/sign-up" className="btn-pricing-primary">Start Pro Trial</Link>
+                <Link href='/sign-up' className='btn-pricing-primary'>
+                  Start Pro Trial
+                </Link>
               </div>
 
               {/* Team */}
-              <div className="pricing-card">
-                <div className="pricing-plan">Team</div>
-                <div className="pricing-price">
-                  <span className="pricing-currency">$</span>
-                  <span className="pricing-amount">99</span>
-                  <span className="pricing-period">/month</span>
+              <div className='pricing-card'>
+                <div className='pricing-plan'>Team</div>
+                <div className='pricing-price'>
+                  <span className='pricing-currency'>$</span>
+                  <span className='pricing-amount'>99</span>
+                  <span className='pricing-period'>/month</span>
                 </div>
-                <div className="pricing-desc">For teams building AI-powered products.</div>
-                <div className="pricing-divider" />
-                <ul className="pricing-features">
+                <div className='pricing-desc'>
+                  For teams building AI-powered products.
+                </div>
+                <div className='pricing-divider' />
+                <ul className='pricing-features'>
                   {[
-                    [true, '100M tokens / month'],
-                    [true, 'All 50+ AI models'],
-                    [true, 'Up to 25 team members'],
-                    [true, 'Team analytics dashboard'],
-                    [true, 'Shared BYOK keys'],
-                    [true, 'AI agent marketplace access'],
-                    [true, 'Priority support & SLA'],
+                    [true, "100M tokens / month"],
+                    [true, "All 50+ AI models"],
+                    [true, "Up to 25 team members"],
+                    [true, "Team analytics dashboard"],
+                    [true, "Shared BYOK keys"],
+                    [true, "AI agent marketplace access"],
+                    [true, "Priority support & SLA"],
                   ].map(([included, label], i) => (
-                    <li key={i} className={`pricing-feature ${included ? 'included' : ''}`}>
-                      <span className={included ? 'pricing-feature-check' : 'pricing-feature-x'}>
-                        {included ? '✓' : '×'}
+                    <li
+                      key={i}
+                      className={`pricing-feature ${included ? "included" : ""}`}
+                    >
+                      <span
+                        className={
+                          included
+                            ? "pricing-feature-check"
+                            : "pricing-feature-x"
+                        }
+                      >
+                        {included ? "✓" : "×"}
                       </span>
                       {label as string}
                     </li>
                   ))}
                 </ul>
-                <Link href="/sign-up" className="btn-pricing-secondary">Start Team Trial</Link>
+                <Link href='/sign-up' className='btn-pricing-secondary'>
+                  Start Team Trial
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* ===== TESTIMONIALS ===== */}
-        <section className="testimonials">
-          <div className="section-header">
-            <div className="section-eyebrow">Testimonials</div>
-            <h2 className="section-title">Loved by developers & teams</h2>
+        <section className='testimonials'>
+          <div className='section-header'>
+            <div className='section-eyebrow'>Testimonials</div>
+            <h2 className='section-title'>Loved by developers & teams</h2>
           </div>
-          <div className="testimonials-grid">
+          <div className='testimonials-grid'>
             {[
               {
                 stars: 5,
                 text: '"AI Workspace completely transformed how our team uses AI. We went from managing 6 separate subscriptions to one unified platform. The BYOK feature alone saved us $800/month."',
-                name: 'Sarah Chen',
-                role: 'CTO at Nexus Labs',
-                avatar: 'SC',
-                avatarBg: 'linear-gradient(135deg, #7c3aed, #3b82f6)',
+                name: "Sarah Chen",
+                role: "CTO at Nexus Labs",
+                avatar: "SC",
+                avatarBg: "linear-gradient(135deg, #7c3aed, #3b82f6)",
               },
               {
                 stars: 5,
                 text: '"The token analytics are incredible. I can see exactly which models give me the best quality-to-cost ratio. Switched to Claude 3.5 for complex tasks and cut my AI budget by 40%."',
-                name: 'Marcus Rivera',
-                role: 'Senior Engineer, Vercel',
-                avatar: 'MR',
-                avatarBg: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+                name: "Marcus Rivera",
+                role: "Senior Engineer, Vercel",
+                avatar: "MR",
+                avatarBg: "linear-gradient(135deg, #3b82f6, #06b6d4)",
               },
               {
                 stars: 5,
                 text: '"The streaming is buttery smooth and the model selector is a game changer. Being able to switch between GPT-4o and Claude mid-project without leaving the interface is priceless."',
-                name: 'Priya Sharma',
-                role: 'Founder, BuildAI.dev',
-                avatar: 'PS',
-                avatarBg: 'linear-gradient(135deg, #06b6d4, #10b981)',
+                name: "Priya Sharma",
+                role: "Founder, BuildAI.dev",
+                avatar: "PS",
+                avatarBg: "linear-gradient(135deg, #06b6d4, #10b981)",
               },
             ].map((t) => (
-              <div key={t.name} className="testimonial-card">
-                <div className="testimonial-stars">
-                  {'★'.repeat(t.stars)}
-                </div>
-                <p className="testimonial-text">{t.text}</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar" style={{ background: t.avatarBg }}>
+              <div key={t.name} className='testimonial-card'>
+                <div className='testimonial-stars'>{"★".repeat(t.stars)}</div>
+                <p className='testimonial-text'>{t.text}</p>
+                <div className='testimonial-author'>
+                  <div
+                    className='testimonial-avatar'
+                    style={{ background: t.avatarBg }}
+                  >
                     {t.avatar}
                   </div>
                   <div>
-                    <div className="testimonial-name">{t.name}</div>
-                    <div className="testimonial-role">{t.role}</div>
+                    <div className='testimonial-name'>{t.name}</div>
+                    <div className='testimonial-role'>{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -1100,63 +1204,86 @@ export default function LandingPage() {
         </section>
 
         {/* ===== CTA SECTION ===== */}
-        <section className="cta-section">
-          <div className="cta-card">
-            <h2 className="cta-title">
-              Ready to unify your<br />
-              <span style={{
-                background: 'linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}>
+        <section className='cta-section'>
+          <div className='cta-card'>
+            <h2 className='cta-title'>
+              Ready to unify your
+              <br />
+              <span
+                style={{
+                  background:
+                    "linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
                 AI workflow?
               </span>
             </h2>
-            <p className="cta-subtitle">
-              Join 10,000+ developers and teams who manage all their AI usage in AI Workspace.
-              Start free, upgrade when you're ready.
+            <p className='cta-subtitle'>
+              Join 10,000+ developers and teams who manage all their AI usage in
+              AI Workspace. Start free, upgrade when you're ready.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/sign-up" className="btn-hero-primary">
+            <div
+              style={{
+                display: "flex",
+                gap: "1rem",
+                justifyContent: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              <Link href='/sign-up' className='btn-hero-primary'>
                 Get Started Free →
               </Link>
-              <Link href="/sign-in" className="btn-hero-secondary">
+              <Link href='/sign-in' className='btn-hero-secondary'>
                 Sign In
               </Link>
             </div>
-            <p style={{ marginTop: '1.25rem', fontSize: '0.8125rem', color: '#555566' }}>
+            <p
+              style={{
+                marginTop: "1.25rem",
+                fontSize: "0.8125rem",
+                color: "#555566",
+              }}
+            >
               No credit card required · Free tier forever · Cancel anytime
             </p>
           </div>
         </section>
 
         {/* ===== FOOTER ===== */}
-        <footer className="footer">
-          <a href="/" className="footer-logo">
-            <div style={{
-              width: 24,
-              height: 24,
-              background: 'linear-gradient(135deg, #7c3aed, #3b82f6)',
-              borderRadius: '6px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '0.75rem',
-            }}>✦</div>
+        <footer className='footer'>
+          <a href='/' className='footer-logo'>
+            <div
+              style={{
+                width: 24,
+                height: 24,
+                background: "linear-gradient(135deg, #7c3aed, #3b82f6)",
+                borderRadius: "6px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "0.75rem",
+              }}
+            >
+              ✦
+            </div>
             AI Workspace
           </a>
-          <div className="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Documentation</a>
-            <a href="#">Status</a>
-            <a href="#">Blog</a>
-            <a href="#">GitHub</a>
+          <div className='footer-links'>
+            <a href='#'>Privacy Policy</a>
+            <a href='#'>Terms of Service</a>
+            <a href='#'>Documentation</a>
+            <a href='#'>Status</a>
+            <a href='#'>Blog</a>
+            <a href='#'>GitHub</a>
           </div>
-          <div className="footer-copy">© 2025 AI Workspace. All rights reserved.</div>
+          <div className='footer-copy'>
+            © 2025 AI Workspace. All rights reserved.
+          </div>
         </footer>
       </div>
     </>
-  )
+  );
 }
